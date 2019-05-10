@@ -14,7 +14,7 @@ class UnitParser:
             path = os.path.join(unit.__path__[0], "config.json")
 
         lexer_tokens = [
-            LexerToken("num",   "(?:(?:[1-9][0-9]*|0)(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[1-9][0-9]*)?", float),
+            LexerToken("num",   r"(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?", float),
             LexerToken("id",    "[a-zA-Z][a-zA-Z0-9]*", str),
             LexerToken("open",  "\\("),
             LexerToken("close", "\\)"),
@@ -22,7 +22,7 @@ class UnitParser:
             LexerToken("mul",   "\\*|/", lambda x: x == "*"),
             LexerToken("pow",   "\\*\\*|\\^"),
             LexerToken("comma", ","),
-            LexerToken("func",  "", str),
+            LexerToken("func",  "", str),   # to be filled in after loading functions
             LexerToken("space", " |\t", ignore=True)
         ]
 
@@ -47,7 +47,7 @@ class UnitParser:
             # unambiguous grammar
             grammar_rules = [
                 GrammarRule("EXP", "EXP1"),
-                GrammarRule("EXP", "EXP  add EXP1", lambda e1, op, e2: (e1 + e2) if op else (e1 - e2)),
+                GrammarRule("EXP", "EXP add EXP1", lambda e1, op, e2: (e1 + e2) if op else (e1 - e2)),
                 GrammarRule("EXP1", "EXP2"),
                 GrammarRule("EXP1", "EXP1 mul EXP2", lambda e1, op, e2: (e1 * e2) if op else (e1 / e2)),
                 GrammarRule("EXP1", "EXP1 EXP3", lambda e1, e2: e1 * e2),
