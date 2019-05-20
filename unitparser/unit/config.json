@@ -43,7 +43,7 @@
     ["Weber",         "Wb",   "kg m^2 / s^2 / A"],
     ["Tesla",         "T",    "kg s^2 / A"],
     ["Henry",         "H",    "kg m^2 / s^2 / A^2"],
-    ["Electronvolt",  "eV",   "1.6021766208e-19 kg m^2 / s^2"],
+    ["Electronvolt",  "eV",   "1.602176634e-19 kg m^2 / s^2"],
     ["Liter",         "L",    "dm^3"],
     ["Tonne",         "t",    "Mg"],
     ["Parsec",        "pc",   "3.08567758149137e16m"]
@@ -68,7 +68,8 @@
     ["Proton mass",             "mp",   "1.672621898e-27 kg"],
     ["Neutron mass",            "mn",   "1.674927471e-27 kg"],
     ["Atomic mass unit",        "amu",  "1.660539040e-27 kg"],
-    ["Avogadro constant",       "NA",   "6.02214086e23 mol^-1"],
+    ["Avogadro constant",       "NA",   "6.02214076e23 mol^-1"],
+    ["Gravitational constant",  "G",    "6.67430e-11 m^3 / kg / s^2"],
     ["Circle constant",         "pi",   "3.14159265358979324"],
     ["Circle constant",         "tau",  "6.28318530717958648"],
     ["Golden ratio",            "phi",  "1.61803398874989485"]
